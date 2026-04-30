@@ -1,0 +1,153 @@
+# Bank Account Management System (C Program)
+
+## 📌 Overview
+
+This project is a **C program that manages bank account records using a random-access file**.
+The program allows users to **create, update, delete, and display account records** stored in a binary file (`credit.dat`). It can also generate a **formatted text report (`accounts.txt`)** for printing.
+
+The system uses a **structure (`struct clientData`)** to store account information such as account number, name, and balance.
+
+---
+
+## ⚙️ Features
+
+* 📄 Create a formatted text file of all accounts
+* ✏️ Update an existing account balance
+* ➕ Add a new account record
+* ❌ Delete an existing account record
+* 📂 Store records in a **random-access binary file**
+
+---
+
+## 🧱 Structure Used
+
+```c
+struct clientData
+{
+    unsigned int acctNum;
+    char lastName[15];
+    char firstName[10];
+    double balance;
+};
+```
+
+Each record stores:
+
+* Account Number
+* Last Name
+* First Name
+* Balance
+
+---
+
+## 📋 Menu Options
+
+When the program runs, the following menu appears:
+
+```
+1 - Store a formatted text file of accounts called "accounts.txt"
+2 - Update an account
+3 - Add a new account
+4 - Delete an account
+5 - End program
+```
+
+Users select a number to perform the desired operation.
+
+---
+
+## 📁 Files Used
+
+1. **credit.dat**
+
+   * Binary random-access file
+   * Stores account records
+
+2. **accounts.txt**
+
+   * Text file
+   * Generated for printing all account details
+
+---
+
+## 🔄 Program Functions
+
+### 1. `textFile()`
+
+Reads records from `credit.dat` and writes them to `accounts.txt` in a formatted table.
+
+### 2. `updateRecord()`
+
+Updates the balance of an existing account.
+
+### 3. `newRecord()`
+
+Creates a new account record if the account number is empty.
+
+### 4. `deleteRecord()`
+
+Deletes an account by replacing the record with a blank record.
+
+### 5. `enterChoice()`
+
+Displays the menu and reads the user's choice.
+
+---
+
+## ▶️ How to Compile and Run
+
+### Compile
+
+```bash
+gcc bank.c -o bank
+```
+
+### Run
+
+```bash
+./bank
+```
+
+---
+
+## 📝 Example Output
+
+```
+Enter your choice
+1 - store a formatted text file of accounts
+2 - update an account
+3 - add a new account
+4 - delete an account
+5 - end program
+? 3
+
+Enter new account number (1 - 100): 1
+Enter lastname, firstname, balance
+? Kumar Ravi 5000
+```
+
+---
+
+## ⚠️ Notes
+
+* Account numbers must be between **1 and 100**.
+* Empty records have an account number **0**.
+* The program uses **random file access with `fseek()`** to directly reach a specific record.
+
+---
+
+## 🎓 Learning Concepts
+
+This project demonstrates:
+
+* C Structures
+* File Handling
+* Random Access Files
+* Binary File Operations (`fread`, `fwrite`)
+* Menu Driven Programs
+
+---
+
+## 👨‍💻 Author
+
+
